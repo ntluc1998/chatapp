@@ -5,11 +5,10 @@ import {
   View,
   FlatList,
   TouchableOpacity,
-  Image,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
-import { FloatingButtonAction } from '@components';
+import { FloatingButtonAction, ProgessiveImage } from '@components';
 import { wp, hp } from '@contants';
 import { chats } from '@mocks';
 export default function ChatScreen() {
@@ -30,7 +29,7 @@ export default function ChatScreen() {
   const renderItemSeparator = () => <View style={styles.itemSeparator} />;
 
   const renderAvatar = (uri) => (
-    <Image source={{ uri }} style={styles.avatar} />
+    <ProgessiveImage source={{ uri }} style={styles.avatar} />
   );
 
   const renderItem = ({ index, item }) => {
@@ -57,7 +56,6 @@ export default function ChatScreen() {
       </TouchableOpacity>
     );
   };
-  useNavigation;
   return (
     <View style={styles.container}>
       <FlatList
@@ -124,8 +122,7 @@ const styles = StyleSheet.create({
   itemContentRight: {
     alignItems: 'center',
     width: '18%',
-    height:'100%'
-
+    height: '100%',
   },
   avatar: {
     width: wp(50),

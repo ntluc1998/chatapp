@@ -26,5 +26,6 @@ const styles = StyleSheet.create({
     borderRadius: wp(30),
     justifyContent: 'center',
     alignItems: 'center',
+    marginVertical: hp(10),
   },
 });
