@@ -1,21 +1,12 @@
 import * as React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {HomeScreen} from '@screens';
-import {View, StyleSheet, TouchableOpacity} from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+// import { useNavigation } from '@react-navigation/native';
+import { HomeScreen } from '@screens';
+import { CustomHeader } from '@components';
+import { StyleSheet } from 'react-native';
 const HomeStack = createStackNavigator();
 
-const HeaderRight = () => (
-  <View style={styles.containerRight}>
-    <TouchableOpacity style={styles.iconPress}>
-      <Ionicons name="search" size={30} color="#fff" />
-    </TouchableOpacity>
-    <TouchableOpacity style={styles.iconPress}>
-      <MaterialCommunityIcons name="dots-vertical" size={30} color="#fff" />
-    </TouchableOpacity>
-  </View>
-);
+const HeaderRight = () => <CustomHeader.Right />;
 
 export const BottomNavigator = () => {
   return (

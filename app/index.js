@@ -5,14 +5,16 @@ import {
   DefaultTheme,
   DarkTheme,
 } from '@react-navigation/native';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
-import {RootNavigation} from '@navigation';
-import {useColorScheme} from '@hooks';
-import {StatusBar} from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { RootNavigation } from '@navigation';
+import { useColorScheme } from '@hooks';
+import { StatusBar } from 'react-native';
 export default function App() {
   return (
     <SafeAreaProvider>
-      <NavigationContainer theme={DarkTheme}>
+      <NavigationContainer
+        theme={useColorScheme() === 'dark' ? DarkTheme : DefaultTheme}
+      >
         <RootNavigation />
         <StatusBar />
       </NavigationContainer>

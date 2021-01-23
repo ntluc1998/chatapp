@@ -1,14 +1,9 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  FlatList,
-  TouchableOpacity,
-} from 'react-native';
+import { StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 import { FloatingButtonAction, ProgessiveImage } from '@components';
+import { View, Text } from '@theme';
 import { wp, hp } from '@contants';
 import { chats } from '@mocks';
 export default function ChatScreen() {
@@ -17,7 +12,7 @@ export default function ChatScreen() {
   const renderUnreadBubble = (messageCount) => {
     return (
       <View style={styles.messageBubble}>
-        <Text style={styles.txtMessageBubble}>{messageCount}</Text>
+        <Text style={{ color: '#FFF' }}>{messageCount}</Text>
       </View>
     );
   };
@@ -41,13 +36,13 @@ export default function ChatScreen() {
             <Text style={styles.name}>{item?.name || ''}</Text>
             <View style={{ flexDirection: 'row' }}>
               {item?.isMe && item?.isRead && renderReadTicks()}
-              <Text numberOfLines={1} style={styles.status}>
+              <Text numberOfLines={1} style={styles.status} colorName="status">
                 {item?.status || ''}
               </Text>
             </View>
           </View>
           <View style={styles.itemContentRight}>
-            <Text style={{ color: '#009999', paddingBottom: hp(10) }}>
+            <Text style={{ color: '#009999' }}>
               3:32 PM
             </Text>
             {!item.isMe && renderUnreadBubble(item?.unreadMessagesCount)}
@@ -70,7 +65,7 @@ export default function ChatScreen() {
         <FloatingButtonAction
           iconName="android-messages"
           extraStyle={styles.messageButton}
-          onPress={() => navigation.navigate('Contacts', {})}
+          onPress={() => navigation.navigate('Contact', {})}
         />
       </View>
     </View>
@@ -95,14 +90,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#009999',
   },
-  txtMessageBubble: {
-    color: '#FFF',
-  },
+  txtMessageBubble: {},
   itemContainer: {
     flex: 0,
     flexDirection: 'row',
     paddingHorizontal: wp(15),
-    paddingVertical: hp(15),
     alignItems: 'center',
   },
   itemContent: {
@@ -123,6 +115,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '18%',
     height: '100%',
+    justifyContent:'space-between',
+    paddingVertical: hp(10)
   },
   avatar: {
     width: wp(50),
@@ -130,12 +124,11 @@ const styles = StyleSheet.create({
     borderRadius: wp(25),
   },
   name: {
-    color: '#FFF',
     fontWeight: 'bold',
     fontSize: hp(18),
   },
   status: {
-    color: 'rgba(255, 255, 255, 0.7)',
+    //color: 'rgba(255, 255, 255, 0.7)',
     fontSize: hp(15),
   },
 });

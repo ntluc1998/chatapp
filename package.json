@@ -8,7 +8,8 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "pod:install": "cd ios && pod install && cd .."
+    "pod:install": "cd ios && pod install && cd ..",
+    "clean": "rm -rf node_modules && watchman watch-del-all"
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",

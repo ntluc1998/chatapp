@@ -1,14 +1,9 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  FlatList,
-  TouchableOpacity,
-} from 'react-native';
+import { StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 import { useNavigation } from '@react-navigation/native';
 import { FloatingButtonAction, ProgessiveImage } from '@components';
+import { View, Text } from '@theme';
 import { wp, hp } from '@contants';
 import { chats } from '@mocks';
 let updateMinutes = 1;
@@ -38,13 +33,13 @@ export default function StatusScreen() {
         <View style={styles.itemContent}>
           <View style={{ flex: 1, justifyContent: 'center' }}>
             <Text style={styles.name}>My status</Text>
-            <Text numberOfLines={1} style={styles.status}>
+            <Text numberOfLines={1} style={styles.status} colorName="status">
               Tap to add status update
             </Text>
           </View>
         </View>
       </TouchableOpacity>
-      <Text numberOfLines={1} style={styles.title}>
+      <Text numberOfLines={1} style={styles.title} colorName="status">
         Recent updates
       </Text>
     </>
@@ -105,6 +100,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: hp(15),
     right: wp(15),
+    backgroundColor: 'transparent',
   },
   messageBubble: {
     width: wp(25),
@@ -114,14 +110,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#009999',
   },
-  txtMessageBubble: {
-    color: '#FFF',
-  },
+  txtMessageBubble: {},
   itemContainer: {
     flex: 0,
     flexDirection: 'row',
     paddingHorizontal: wp(15),
-    paddingVertical: hp(5),
+    // paddingVertical: hp(5),
     alignItems: 'center',
   },
   itemContent: {
@@ -149,12 +143,10 @@ const styles = StyleSheet.create({
     borderRadius: wp(25),
   },
   name: {
-    color: '#FFF',
     fontWeight: 'bold',
     fontSize: hp(18),
   },
   status: {
-    color: 'rgba(255, 255, 255, 0.7)',
     fontSize: hp(15),
   },
   imgContainer: {
@@ -169,7 +161,6 @@ const styles = StyleSheet.create({
   },
   title: {
     paddingHorizontal: wp(30),
-    color: 'rgba(255, 255, 255, 0.7)',
     fontSize: hp(18),
     opacity: 0.7,
   },
